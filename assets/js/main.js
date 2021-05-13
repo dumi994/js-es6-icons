@@ -134,10 +134,12 @@ let nuovoOggetto = oggetti.forEach((oggetto) => {
         <h5>${oggetto.name}</h5>
     </div>`)
     console.log(oggetto.family, oggetto.prefix + oggetto.name, ); //aggiungi prima della fine dell'elemento "div class ecc ecc"
+
 }); 
 
+
 //Milestone 3 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
-let userSelect = oggetti.filter((element, index, oggetto) => {
+/* let userSelect = oggetti.filter((element, index, oggetto) => {
     if (userSelect === 'all'){
         document.getElementById('container').insertAdjacentHTML('beforeend', `
         <div class="oggetto">
@@ -151,5 +153,38 @@ let userSelect = oggetti.filter((element, index, oggetto) => {
             <h5>${animal.name}</h5>
         </div>`)
     }
-})
-document.getElementById('categorie').addEventListener('select', userSelect)
+})*/
+
+
+document.getElementById('categorie').addEventListener('change', function () {
+    let userSelect = document.getElementById('categorie').value;
+    console.log(userSelect);
+    let oggettoFiltrato = oggetti.filter((element)=>{
+        return element.type == userSelect
+    })
+    console.log(oggettoFiltrato);
+    document.getElementById('container').innerHTML = "";
+    if (oggettoFiltrato.length > 0){
+        oggettoFiltrato.forEach((oggetto) => {
+            console.log(oggetto.name); //dammi il nome dell'oggetto
+            document.getElementById('container').insertAdjacentHTML('beforeend', `
+            <div class="oggetto">
+                <i class="${oggetto.family} ${oggetto.prefix}${oggetto.name}" style="color: ${oggetto.coloreScelto}"></i>
+                <h5>${oggetto.name}</h5>
+            </div>`)
+            console.log(oggetto.family, oggetto.prefix + oggetto.name, ); //aggiungi prima della fine dell'elemento "div class ecc ecc"
+        
+        }); 
+    }else{
+        oggetti.forEach((oggetto) => {
+            console.log(oggetto.name); //dammi il nome dell'oggetto
+            document.getElementById('container').insertAdjacentHTML('beforeend', `
+            <div class="oggetto">
+                <i class="${oggetto.family} ${oggetto.prefix}${oggetto.name}" style="color: ${oggetto.coloreScelto}"></i>
+                <h5>${oggetto.name}</h5>
+            </div>`)
+            console.log(oggetto.family, oggetto.prefix + oggetto.name, ); //aggiungi prima della fine dell'elemento "div class ecc ecc"
+        
+        }); 
+    }
+}); 
