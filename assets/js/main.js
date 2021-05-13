@@ -1,3 +1,7 @@
+//Milestone 1:
+//Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
+
+
 const oggetti = [
 	{
 		name: 'cat',
@@ -100,8 +104,7 @@ console.log(oggetti);
 
 
 
-// COLORA LE ICONE PER TIPO
-
+//Milestone 2 Coloriamo le icone per tipo
 
 let animal = [], vegetable = [], user = [] ;
 oggetti.forEach((oggetto) => { 
@@ -115,7 +118,7 @@ oggetti.forEach((oggetto) => {
     }else {
         oggetto.coloreScelto = 'purple'
     }
-}) 
+});
 console.log(animal, vegetable, user);
 
 
@@ -133,3 +136,20 @@ let nuovoOggetto = oggetti.forEach((oggetto) => {
     console.log(oggetto.family, oggetto.prefix + oggetto.name, ); //aggiungi prima della fine dell'elemento "div class ecc ecc"
 }); 
 
+//Milestone 3 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+let userSelect = oggetti.filter((element, index, oggetto) => {
+    if (userSelect === 'all'){
+        document.getElementById('container').insertAdjacentHTML('beforeend', `
+        <div class="oggetto">
+            <i class="${oggetto.family} ${oggetto.prefix}${oggetto.name}" style="color: ${oggetto.coloreScelto}"></i>
+            <h5>${oggetto.name}</h5>
+        </div>`)
+    }else if (userSelect === 'animal'){
+        document.getElementById('container').insertAdjacentHTML('beforeend', `
+        <div class="oggetto">
+            <i class="${animal.family} ${animal.prefix}${animal.name}" style="color: ${oggetto.coloreScelto}"></i>
+            <h5>${animal.name}</h5>
+        </div>`)
+    }
+})
+document.getElementById('categorie').addEventListener('select', userSelect)
