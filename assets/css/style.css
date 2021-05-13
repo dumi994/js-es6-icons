@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+    padding:50px;
+}
+
+
+*{
+    background-color: lightgray;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.oggetto {
+    width: 120px;
+    height:100px;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    margin:10px;
+    box-shadow: 0 5px 10px 0 black;
+    text-align: center;
+}
