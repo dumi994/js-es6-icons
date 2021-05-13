@@ -102,8 +102,8 @@ let nuovoOggetto = oggetti.forEach((oggetto) => {
     console.log(oggetto.name);
     document.getElementById('container').insertAdjacentHTML('beforeend', `
     <div class="oggetto">
-        <i class="${oggetto.family} ${oggetto.prefix} ${oggetto.name}"></i>
-        <h4>${oggetto.family} ${oggetto.prefix} ${oggetto.name}</h4>
+        <i class="${oggetto.family} ${oggetto.prefix}${oggetto.name}"></i>
+        <h4>${oggetto.name}</h4>
     </div>`)
     console.log(oggetto.family, oggetto.prefix + oggetto.name, );
     /*    document. */
