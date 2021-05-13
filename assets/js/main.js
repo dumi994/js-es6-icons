@@ -98,15 +98,38 @@ const oggetti = [
 ];
 console.log(oggetti);
 
+
+
+// COLORA LE ICONE PER TIPO
+
+
+let animal = [], vegetable = [], user = [] ;
+oggetti.forEach((oggetto) => { 
+    oggetto.color
+     if (oggetto.type === 'animal'){ 
+         oggetto.coloreScelto = 'blue';
+         animal.push(oggetto);
+    }else if(oggetto.type === 'vegetable'){ 
+         oggetto.coloreScelto = 'orange'
+         animal.push(oggetto);
+    }else {
+        oggetto.coloreScelto = 'purple'
+    }
+}) 
+console.log(animal, vegetable, user);
+
+
+
+
+//cicla nell'array di oggetti e forma l'icona correttametne
+
 let nuovoOggetto = oggetti.forEach((oggetto) => {
-    console.log(oggetto.name);
+    console.log(oggetto.name); //dammi il nome dell'oggetto
     document.getElementById('container').insertAdjacentHTML('beforeend', `
     <div class="oggetto">
-        <i class="${oggetto.family} ${oggetto.prefix}${oggetto.name}"></i>
+        <i class="${oggetto.family} ${oggetto.prefix}${oggetto.name}" style="color: ${oggetto.coloreScelto}"></i>
         <h4>${oggetto.name}</h4>
     </div>`)
-    console.log(oggetto.family, oggetto.prefix + oggetto.name, );
-    /*    document. */
-    /* document.getElementById('mario').insertAdjacentHTML('beforeend', `<i class="${oggetto.family} ${oggetto.prefix} ${oggetto.type}"</i>`); */
+    console.log(oggetto.family, oggetto.prefix + oggetto.name, ); //aggiungi prima della fine dell'elemento "div class ecc ecc"
 }); 
-/*  <i class="${oggetto.family, oggetto.prefix + oggetto.name}></i> */
+
