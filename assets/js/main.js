@@ -98,14 +98,15 @@ const oggetti = [
 ];
 console.log(oggetti);
 
-oggetti.forEach((oggetto) => {
+let nuovoOggetto = oggetti.forEach((oggetto) => {
     console.log(oggetto.name);
     document.getElementById('container').insertAdjacentHTML('beforeend', `
     <div class="oggetto">
-       <i class="${oggetto.family, oggetto.prefix + oggetto.name}></i>
-        <h4>${oggetti.name}</h4>
+        <i class="${oggetto.family} ${oggetto.prefix} ${oggetto.name}"></i>
+        <h4>${oggetto.family} ${oggetto.prefix} ${oggetto.name}</h4>
     </div>`)
     console.log(oggetto.family, oggetto.prefix + oggetto.name, );
     /*    document. */
-    document.getElementById('mario').insertAdjacentHTML('beforeend', `<i class="${oggetto.family} ${oggetto.prefix} ${oggetto.type}"</i>`);
+    /* document.getElementById('mario').insertAdjacentHTML('beforeend', `<i class="${oggetto.family} ${oggetto.prefix} ${oggetto.type}"</i>`); */
 }); 
+/*  <i class="${oggetto.family, oggetto.prefix + oggetto.name}></i> */
